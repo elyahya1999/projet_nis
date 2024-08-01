@@ -1,0 +1,97 @@
+<!-- src/main/resources/templates/updateOffre.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Offre</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #012144; /* Couleur d'arrière-plan extérieur */
+        }
+        .form-container {
+            background-color: #012144; /* Couleur d'arrière-plan du formulaire */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(253, 133, 0);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        .form-container h3 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #fd8500;
+        }
+
+        .form-control:focus {
+            border-color: #fd8500;
+            box-shadow: 0 0 0 0.2rem rgb(1, 33, 68);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #fd8500;
+            border-color: #fd8500;
+        }
+
+    </style>
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="container">
+        <div class="form-container">
+            <h3 class="text-center my-4">Modifier Offre</h3>
+            <form th:action="@{/updateOffre}" th:object="${offreToBeUpdated}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-lg-2">
+                    <label for="title" class="form-label">Titre de l'offre</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="entreprise" class="form-label">Entreprise</label>
+                    <input type="text" class="form-control" id="entreprise" th:field="*{entreprise}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="description" class="form-label">Description</label>
+                    <input class="form-control" id="description" th:field="*{description}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" class="form-control" id="image" th:field="*{image}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="localisation" class="form-label">Localisation</label>
+                    <input type="text" class="form-control" id="localisation" th:field="*{localisation}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="typeContrat" class="form-label">Type de Contrat</label>
+                    <input type="text" class="form-control" id="typeContrat" th:field="*{typeContrat}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="competencesRequises" class="form-label">Compétences Requises</label>
+                    <input class="form-control" id="competencesRequises" th:field="*{competencesRequises}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="datePublication" class="form-label">Date de Publication</label>
+                    <input type="date" class="form-control" id="datePublication" th:field="*{datePublication}">
+                </div>
+                <div class="mb-lg-2">
+                    <label for="dateExpiration" class="form-label">Date d'Expiration</label>
+                    <input type="date" class="form-control" id="dateExpiration" th:field="*{dateExpiration}">
+                </div>
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
