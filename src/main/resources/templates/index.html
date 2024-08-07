@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -611,183 +610,57 @@
     <!-- ===== End of Signup & Video Section ===== -->
 
 
-
-
-
     <!-- ===== Start of Job Post Section ===== -->
     <section class="ptb80" id="job-post">
         <div class="container">
 
             <!-- Start of Job Post Main -->
             <div class="col-md-8 col-sm-12 col-xs-12 job-post-main">
-                <h2 class="capitalize"><i class="fa fa-briefcase"></i>latest jobs</h2>
-
-                <!-- Start of Job Post Wrapper -->
-                <div class="job-post-wrapper mt60">
-
-                    <!-- Start of Single Job Post 1 -->
-                    <div class="single-job-post row nomargin">
-                        <!-- Job Company -->
-                        <div class="col-md-2 col-xs-3 nopadding">
-                            <div class="job-company">
-                                <a href="company-page-1.html">
-                                    <img src="images/companies/envato.svg" alt="">
-                                </a>
-                            </div>
+                <style>
+                    .offer-card {
+                        display: flex;
+                        align-items: center;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        padding: 10px;
+                        margin-bottom: 10px;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    }
+                    .offer-details {
+                        flex-grow: 1;
+                    }
+                    .offer-title {
+                        font-size: 1.2em;
+                        margin-bottom: 5px;
+                    }
+                    .offer-company-location {
+                        color: #777;
+                        margin-bottom: 5px;
+                    }
+                    .offer-type {
+                        padding: 5px 10px;
+                        background-color: #563d7c;
+                        color: white;
+                        border-radius: 3px;
+                        text-align: center;
+                    }
+                </style>
+                </head>
+                <body>
+                <h1>Liste des Offres</h1>
+                <div th:if="${listOffres}">
+                    <div th:each="offre : ${listOffres}" class="offer-card">
+                        <div class="offer-details">
+                            <div class="offer-title" th:text="${offre.title}">Titre de l'offre</div>
+                            <div class="offer-company-location" th:text="${offre.entreprise + ' • ' + offre.localisation}">Entreprise • Localisation</div>
+                            <div th:text="${offre.description}">Description de l'offre</div>
                         </div>
-
-                        <!-- Job Title & Info -->
-                        <div class="col-md-8 col-xs-6 ptb20">
-                            <div class="job-title">
-                                <a href="job-page.html">php senior developer</a>
-                            </div>
-
-                            <div class="job-info">
-                                <span class="company"><i class="fa fa-building-o"></i>envato</span>
-                                <span class="location"><i class="fa fa-map-marker"></i>Melbourn, Australia</span>
-                            </div>
-                        </div>
-
-                        <!-- Job Category -->
-                        <div class="col-md-2 col-xs-3 ptb30">
-                            <div class="job-category">
-                                <a href="javascript:void(0)" class="btn btn-green btn-small btn-effect">full time</a>
-                            </div>
-                        </div>
+                        <div class="offer-type" th:text="${offre.typeContrat}">Type de Contrat</div>
+                        <a th:href="@{'/offre/' + ${offre.id}}" class="more-info">
+                            <button type="button">Savoir Plus</button>
+                        </a>
                     </div>
-                    <!-- End of Single Job Post 1 -->
-
-                    <!-- Start of Single Job Post 2 -->
-                    <div class="single-job-post row nomargin">
-                        <!-- Job Company -->
-                        <div class="col-md-2 col-xs-3 nopadding">
-                            <div class="job-company">
-                                <a href="company-page-1.html">
-                                    <img src="images/companies/google.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Job Title & Info -->
-                        <div class="col-md-8 col-xs-6 ptb20">
-                            <div class="job-title">
-                                <a href="job-page.html">department head</a>
-                            </div>
-
-                            <div class="job-info">
-                                <span class="company"><i class="fa fa-building-o"></i>google</span>
-                                <span class="location"><i class="fa fa-map-marker"></i>berlin, germany</span>
-                            </div>
-                        </div>
-
-                        <!-- Job Category -->
-                        <div class="col-md-2 col-xs-3 ptb30">
-                            <div class="job-category">
-                                <a href="javascript:void(0)" class="btn btn-purple btn-small btn-effect">part time</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Single Job Post 2 -->
-
-                    <!-- Start of Single Job Post 3 -->
-                    <div class="single-job-post row nomargin">
-                        <!-- Job Company -->
-                        <div class="col-md-2 col-xs-3 nopadding">
-                            <div class="job-company">
-                                <a href="company-page-1.html">
-                                    <img src="images/companies/facebook.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Job Title & Info -->
-                        <div class="col-md-8 col-xs-6 ptb20">
-                            <div class="job-title">
-                                <a href="job-page.html">graphic designer</a>
-                            </div>
-
-                            <div class="job-info">
-                                <span class="company"><i class="fa fa-building-o"></i>facebook</span>
-                                <span class="location"><i class="fa fa-map-marker"></i>london, UK</span>
-                            </div>
-                        </div>
-
-                        <!-- Job Category -->
-                        <div class="col-md-2 col-xs-3 ptb30">
-                            <div class="job-category">
-                                <a href="javascript:void(0)" class="btn btn-blue btn-small btn-effect">freelancer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Single Job Post 3 -->
-
-                    <!-- Start of Single Job Post 4 -->
-                    <div class="single-job-post row nomargin">
-                        <!-- Job Company -->
-                        <div class="col-md-2 col-xs-3 nopadding">
-                            <div class="job-company">
-                                <a href="company-page-1.html">
-                                    <img src="images/companies/envato.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Job Title & Info -->
-                        <div class="col-md-8 col-xs-6 ptb20">
-                            <div class="job-title">
-                                <a href="job-page.html">senior UI & UX designer</a>
-                            </div>
-
-                            <div class="job-info">
-                                <span class="company"><i class="fa fa-building-o"></i>envato</span>
-                                <span class="location"><i class="fa fa-map-marker"></i>Melbourn, Australia</span>
-                            </div>
-                        </div>
-
-                        <!-- Job Category -->
-                        <div class="col-md-2 col-xs-3 ptb30">
-                            <div class="job-category">
-                                <a href="javascript:void(0)" class="btn btn-orange btn-small btn-effect">intership</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Single Job Post 4 -->
-
-                    <!-- Start of Single Job Post 5 -->
-                    <div class="single-job-post row nomargin">
-                        <!-- Job Company -->
-                        <div class="col-md-2 col-xs-3 nopadding">
-                            <div class="job-company">
-                                <a href="company-page-1.html">
-                                    <img src="images/companies/twitter.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Job Title & Info -->
-                        <div class="col-md-8 col-xs-6 ptb20">
-                            <div class="job-title">
-                                <a href="job-page.html">senior health advisor</a>
-                            </div>
-
-                            <div class="job-info">
-                                <span class="company"><i class="fa fa-building-o"></i>twitter</span>
-                                <span class="location"><i class="fa fa-map-marker"></i>New York, USA</span>
-                            </div>
-                        </div>
-
-                        <!-- Job Category -->
-                        <div class="col-md-2 col-xs-3 ptb30">
-                            <div class="job-category">
-                                <a href="javascript:void(0)" class="btn btn-red btn-small btn-effect">temporary</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Single Job Post 5 -->
-
                 </div>
-                <!-- End of Job Post Wrapper -->
-
                 <!-- Start of Pagination -->
                 <ul class="pagination list-inline text-center">
                     <li class="active"><a href="javascript:void(0)">1</a></li>

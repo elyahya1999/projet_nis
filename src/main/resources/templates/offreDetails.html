@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de l'Offre</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .offer-details-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .offer-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+        .offer-company-location {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .offer-description {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: #444;
+        }
+        .offer-details {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .offer-details strong {
+            color: #000;
+        }
+        .offer-details span {
+            color: #555;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .action-button {
+            background-color: #563d7c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+        .action-button:hover {
+            background-color: #6b4fc3;
+        }
+    </style>
+</head>
+<body>
+<div class="offer-details-card">
+    <div class="offer-title" th:text="${offre.title}">Titre de l'offre</div>
+    <div class="offer-company-location" th:text="${offre.entreprise + ' • ' + offre.localisation}">Entreprise • Localisation</div>
+    <div class="offer-description" th:text="${offre.description}">Description de l'offre</div>
+    <div class="offer-details">
+        <p><strong>Compétences Requises:</strong> <span th:text="${offre.competencesRequises}">Compétences Requises</span></p>
+        <p><strong>Date de Publication:</strong> <span th:text="${#dates.format(offre.datePublication, 'yyyy-MM-dd')}">Date de Publication</span></p>
+        <p><strong>Date d'Expiration:</strong> <span th:text="${#dates.format(offre.dateExpiration, 'yyyy-MM-dd')}">Date d'Expiration</span></p>
+        <p><strong>Type de Contrat:</strong> <span th:text="${offre.typeContrat}">Type de Contrat</span></p>
+    </div>
+    <div class="button-container">
+        <a href="/index" class="action-button">Retour</a>
+        <a th:href="@{'/candidature/form/' + ${offre.id}}" class="action-button">Postuler</a>
+    </div>
+</div>
+</body>
+</html>

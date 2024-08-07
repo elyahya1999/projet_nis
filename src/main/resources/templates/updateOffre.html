@@ -1,4 +1,3 @@
-<!-- src/main/resources/templates/updateOffre.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
@@ -43,6 +42,11 @@
             border-color: #fd8500;
         }
 
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
     </style>
 </head>
 <body>
@@ -55,38 +59,53 @@
                 <div class="mb-lg-2">
                     <label for="title" class="form-label">Titre de l'offre</label>
                     <input type="text" class="form-control" id="title" th:field="*{title}">
+                    <div class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="entreprise" class="form-label">Entreprise</label>
                     <input type="text" class="form-control" id="entreprise" th:field="*{entreprise}">
+                    <div class="error" th:if="${#fields.hasErrors('entreprise')}" th:errors="*{entreprise}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="description" class="form-label">Description</label>
                     <input class="form-control" id="description" th:field="*{description}">
+                    <div class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="image" class="form-label">Image</label>
                     <input type="text" class="form-control" id="image" th:field="*{image}">
+                    <div class="error" th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="localisation" class="form-label">Localisation</label>
                     <input type="text" class="form-control" id="localisation" th:field="*{localisation}">
+                    <div class="error" th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="typeContrat" class="form-label">Type de Contrat</label>
-                    <input type="text" class="form-control" id="typeContrat" th:field="*{typeContrat}">
+                    <select class="form-select" id="typeContrat" th:field="*{typeContrat}">
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Freelance">Freelance</option>
+                    </select>
+                    <div class="error" th:if="${#fields.hasErrors('typeContrat')}" th:errors="*{typeContrat}"></div>
                 </div>
+
                 <div class="mb-lg-2">
                     <label for="competencesRequises" class="form-label">Compétences Requises</label>
                     <input class="form-control" id="competencesRequises" th:field="*{competencesRequises}">
+                    <div class="error" th:if="${#fields.hasErrors('competencesRequises')}" th:errors="*{competencesRequises}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="datePublication" class="form-label">Date de Publication</label>
                     <input type="date" class="form-control" id="datePublication" th:field="*{datePublication}">
+                    <div class="error" th:if="${#fields.hasErrors('datePublication')}" th:errors="*{datePublication}"></div>
                 </div>
                 <div class="mb-lg-2">
                     <label for="dateExpiration" class="form-label">Date d'Expiration</label>
                     <input type="date" class="form-control" id="dateExpiration" th:field="*{dateExpiration}">
+                    <div class="error" th:if="${#fields.hasErrors('dateExpiration')}" th:errors="*{dateExpiration}"></div>
                 </div>
                 <button type="submit" class="btn btn-primary">Modifier</button>
             </form>
