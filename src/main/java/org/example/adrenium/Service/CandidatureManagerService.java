@@ -5,6 +5,7 @@ import org.example.adrenium.Dao.Repositories.CandidatureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -51,7 +52,12 @@ public class CandidatureManagerService implements CandidatureManager{
 
     @Override
     public Page<Candidature> searchCandidature(String keyword, int page, int size) {
-        return candidatureRepository.findByCandidatContains(keyword, PageRequest.of(page, size));
+        return candidatureRepository.findByOffre_TitleContainingIgnoreCase(keyword, PageRequest.of(page, size));
 
+    }
+
+    @Override
+    public Page<Candidature> findAllCandidatures(Pageable pageable) {
+        return candidatureRepository.findAll(pageable);
     }
 }

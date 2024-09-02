@@ -21,9 +21,7 @@ public class Utilisateur {
     private enum role {
         Candidat,
         Recruteur
-    };
-
-
+    }
 
 
 }

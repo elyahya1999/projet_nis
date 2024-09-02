@@ -2,6 +2,7 @@ package org.example.adrenium.Service;
 
 import org.example.adrenium.Dao.Entities.Candidature;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface CandidatureManager {
     boolean deleteCandidature(int id);
 
     Page<Candidature> searchCandidature(String keyword, int page, int size);
+
+    Page<Candidature> findAllCandidatures(Pageable pageable);
 }

@@ -45,4 +45,7 @@ public class Offre {
                 ", recruteur=" + recruteur +
                 '}';
     }
+    public String getTitre() {
+        return title;
+    }
 }

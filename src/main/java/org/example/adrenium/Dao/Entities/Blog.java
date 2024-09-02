@@ -16,6 +16,7 @@ public class Blog {
     private String contenu;
     private Date creationDate;
     private String auteur;
+    private String image;
     @ManyToOne
     private Recruteur recruteur;
 }

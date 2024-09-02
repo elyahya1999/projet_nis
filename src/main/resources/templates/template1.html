@@ -25,12 +25,22 @@
         </ul>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Candidats</a>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Blogs</a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" th:href="@{/ajouterCandidat}">Nouveau Candidat</a></li>
-          <li><a class="dropdown-item" th:href="@{/candidats}">Chercher Candidat</a></li>
+          <li><a class="dropdown-item" th:href="@{/ajouterBlog}">Nouveau Blog</a></li>
+          <li><a class="dropdown-item" th:href="@{/blogs}">Chercher Blog</a></li>
         </ul>
       </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/candidatures">Candidatures</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/candidature-spontanee/candidatures">Candidatures Spontannée</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/messages">Liste des Messages</a>
+      </li>
+
     </ul>
     <ul class="navbar-nav ms-auto">
       <li class="nav-item dropdown">

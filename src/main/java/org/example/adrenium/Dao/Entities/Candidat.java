@@ -19,7 +19,8 @@ public class Candidat extends Utilisateur {
     private enum domaine_expertise{
         info,
         compta
-    };
+    }
+
     @OneToMany(mappedBy = "candidat")
     private Collection<Candidature> candidatures;
 

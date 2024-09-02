@@ -22,21 +22,100 @@ public class OffreController {
     @Autowired
     private OffreManager offreManager;
 
-//    @GetMapping("/home")
-//    public String home() {
-//        return "index";
+    @GetMapping("/index")
+    public String index() {
+        return "index";
+    }
+    @GetMapping("/error")
+    public String error() {
+        return "404-2";
+    }
+    @GetMapping("/aboutUs")
+    public String aboutUs() {
+        return "about-us";
+    }
+//    @GetMapping("/blog-f")
+//    public String blog_f() {
+//        return "blog-fullwidth-v1";
 //    }
-@GetMapping("/index")
+    @GetMapping("/blog-fu")
+    public String blog_fu() {
+        return "blog-fullwidth-v2";
+    }
+    @GetMapping("/blog-l")
+    public String blog_l() {
+        return "blog-left-sidebar-v1";
+    }
+    @GetMapping("/blog-le")
+    public String blog_le() {
+        return "blog-left-sidebar-v2";
+    }
+    @GetMapping("/blog-r")
+    public String blog_r() {
+        return "blog-right-sidebar-v2";
+    }
+    @GetMapping("/blog-m")
+    public String blog_m() {
+        return "blog-masonry-4col";
+    }
+    @GetMapping("/blog-p")
+    public String blog_p() {
+        return "blog-post-right-sidebar";
+    }
+    @GetMapping("/button")
+    public String buttons() {
+        return "buttons";
+    }
+//    @GetMapping("/contact")
+//    public String contact() {
+//        return "contact-1";
+//    }
+    @GetMapping("/faq")
+    public String faq() {
+        return "faq";
+    }
+    @GetMapping("/fa")
+    public String fa() {
+        return "footer4";
+    }
+    @GetMapping("/header")
+    public String header() {
+        return "header4";
+    }
+    @GetMapping("/job")
+    public String job() {
+        return "pricing-tables";
+    }
+    @GetMapping("/privacy")
+    public String privacy() {
+        return "privacy-policy";
+    }
+    @GetMapping("/resume")
+    public String resume() {
+        return "resume";
+    }
+//    @GetMapping("/jobP")
+//    public String jobP() {
+//        return "search-jobs-1";
+//    }
+
+
+
+
+
+
+
+    @GetMapping("/jobP")
 public String home(Model model,
                    @RequestParam(name = "page", defaultValue = "0") int page,
-                   @RequestParam(name = "size", defaultValue = "5") int size,
+                   @RequestParam(name = "size", defaultValue = "2") int size,
                    @RequestParam(name = "keyword", defaultValue = "") String keyword) {
     Page<Offre> pageOffres = offreManager.searchOffre(keyword, page, size);
     model.addAttribute("listOffres", pageOffres.getContent());
     model.addAttribute("pages", new int[pageOffres.getTotalPages()]);
     model.addAttribute("currentPage", page);
     model.addAttribute("keyword", keyword);
-    return "index";
+    return "search-jobs-1";
 }
 
 
@@ -103,12 +182,19 @@ public String home(Model model,
 
     @GetMapping("/deleteOffre")
     public String deleteOffre(Model model, @RequestParam(name = "id") Integer id) {
-        if (offreManager.deleteOffre(id)) {
-            return "redirect:/offres";
-        } else {
+        try {
+            if (offreManager.deleteOffre(id)) {
+                return "redirect:/offres";
+            } else {
+                model.addAttribute("errorMessage", "L'offre avec l'ID " + id + " n'a pas pu être supprimée.");
+                return "error";
+            }
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", "Une erreur s'est produite lors de la suppression de l'offre : " + e.getMessage());
             return "error";
         }
     }
+
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {

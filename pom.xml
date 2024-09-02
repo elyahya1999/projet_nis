@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>AntiGaspi1</artifactId>
+    <artifactId>Ardenium</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>AntiGaspi1</name>
-    <description>AntiGaspi1</description>
+    <name>Ardenium</name>
+    <description>Ardenium</description>
     <properties>
         <java.version>22</java.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>

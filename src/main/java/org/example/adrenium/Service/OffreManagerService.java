@@ -37,13 +37,21 @@ public class OffreManagerService implements OffreManager{
 
     @Override
     public boolean deleteOffre(int id) {
-            try{
+        try {
+            Optional<Offre> offre = offreRepository.findById(id);
+            if (offre.isPresent()) {
                 offreRepository.deleteById(id);
                 return true;
-            }catch (Exception exception){
-                return false;
+            } else {
+                return false; // L'offre n'existe pas
             }
+        } catch (Exception exception) {
+            // Log de l'erreur pour une meilleure traçabilité
+            System.err.println("Erreur lors de la suppression de l'offre avec l'ID " + id + ": " + exception.getMessage());
+            return false;
+        }
     }
+
 
     @Override
     public Page<Offre> getAllOffre2(int page, int size) {
@@ -52,8 +60,13 @@ public class OffreManagerService implements OffreManager{
 
     @Override
     public Page<Offre> searchOffre(String keyword, int page, int size) {
-        return offreRepository.findByTitleContains(keyword, PageRequest.of(page, size));
+        if (keyword == null || keyword.isEmpty()) {
+            return offreRepository.findAll(PageRequest.of(page, size));
+        } else {
+            return offreRepository.findByTitleContains(keyword, PageRequest.of(page, size));
+        }
     }
+
 
     @Override
     public List<Offre> getByKeyword(String keyword) {

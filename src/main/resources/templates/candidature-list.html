@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Liste des Candidatures</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div layout:fragment="content1">
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Liste des Candidatures Spontanées</h1>
+
+    <!-- Formulaire de recherche -->
+    <div class="d-flex justify-content-center mb-4">
+        <form class="form-inline" action="/candidature-spontanee/candidatures" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" value="" placeholder="Rechercher par nom, prénom ou email">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"></i> Rechercher
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Tableau des candidatures -->
+    <div class="table-responsive">
+        <table class="table table-hover table-striped text-center">
+            <thead class="thead-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Profession</th>
+                <th>Date de Soumission</th>
+                <th>CV</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="candidature : ${candidatures}">
+                <td th:text="${candidature.nom}"></td>
+                <td th:text="${candidature.prenom}"></td>
+                <td th:text="${candidature.mail}"></td>
+                <td th:text="${candidature.profession}"></td>
+                <td th:text="${#dates.format(candidature.dateSoumission, 'dd/MM/yyyy')}"></td>
+                <td>
+                    <a th:href="@{'/uploads/' + ${candidature.cvFileName}}" class="btn btn-outline-info" download>
+                        <i class="fa fa-download"></i> Télécharger CV
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/candidature-spontanee/supprimer/' + ${candidature.id}}"
+                       class="btn btn-outline-danger"
+                       onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette candidature ?');">
+                        <i class="fa fa-trash"></i> Supprimer
+                    </a>
+                </td> <!-- Action column with Delete button -->
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Contrôles de pagination -->
+    <nav aria-label="Pagination" class="d-flex justify-content-center mt-4">
+        <ul class="pagination">
+            <li class="page-item" th:if="${currentPage > 0}">
+                <a class="page-link" th:href="@{/candidature-spontanee/candidatures(page=${currentPage - 1}, size=${size}, search=${searchTerm != null ? searchTerm : ''})}">
+                    <i class="fa fa-arrow-left"></i> Précédent
+                </a>
+            </li>
+            <li class="page-item" th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                th:classappend="${i == currentPage ? 'active' : ''}">
+                <a class="page-link" th:href="@{/candidature-spontanee/candidatures(page=${i}, size=${size}, search=${searchTerm != null ? searchTerm : ''})}"
+                   th:text="${i + 1}"></a>
+            </li>
+            <li class="page-item" th:if="${currentPage < totalPages - 1}">
+                <a class="page-link" th:href="@{/candidature-spontanee/candidatures(page=${currentPage + 1}, size=${size}, search=${searchTerm != null ? searchTerm : ''})}">
+                    Suivant <i class="fa fa-arrow-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+</div>
+
+<!-- Bootstrap and FontAwesome JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+
+</body>
+</html>

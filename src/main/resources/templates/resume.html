@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Cariera - Job Board HTML Template">
+    <meta name="keywords" content="cariera job board, HTML Template, job board html, job listing, job portal, job postings, jobs, recruiters, recruiting, recruitment">
+    <meta name="author" content="GnoDesign">
+
+    <title>Cariera - Submit Resume</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700,800|Varela+Round">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+
+<body>
+<header class="header1">
+    <nav class="navbar navbar-default navbar-static-top fluid_header centered">
+        <div class="container">
+
+            <!-- Logo -->
+            <div class="col-md-2 col-sm-6 col-xs-8 nopadding">
+                <a class="navbar-brand nomargin" href="home"><img src="images/logo.svg" alt="logo"></a>
+                <!-- INSERT YOUR LOGO HERE -->
+            </div>
+
+            <!-- ======== Start of Main Menu ======== -->
+            <div class="col-md-10 col-sm-6 col-xs-4 nopadding">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle toggle-menu menu-right push-body" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Start of Main Nav -->
+                <div class="collapse navbar-collapse cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="main-nav">
+                    <ul class="nav navbar-nav pull-right">
+
+                        <!-- Mobile Menu Title -->
+                        <li class="mobile-title">
+                            <h4>main menu</h4></li>
+
+                        <!-- Simple Menu Item -->
+                        <li class="dropdown simple-menu active">
+                            <a href="index" class="dropdown-toggle"  role="button">Accueil</a>
+
+                        </li>
+
+                        <!-- Simple Menu Item -->
+                        <li class="dropdown simple-menu">
+                            <a href="aboutUs" class="dropdown-toggle" data-toggle="dropdown" role="button">Le cabinet</a>
+
+                        </li>
+
+                        <!-- Simple Menu Item -->
+                        <li class="dropdown simple-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Domaines d'intervention</a>
+
+                        </li>
+
+                        <!-- Mega Menu Item -->
+                        <li class="dropdown mega-menu">
+                            <a href="jobP" class="dropdown-toggle" data-toggle="dropdown" role="button">Offres en cours</a>
+                        </li>
+                        <!-- End of Mega Menu Item -->
+
+                        <!-- Simple Menu Item -->
+                        <li class="dropdown simple-menu">
+                            <a href="resume" class="dropdown-toggle" data-toggle="dropdown" role="button">Candidature spontanée</a>
+
+                        </li>
+
+                        <!-- Simple Menu Item -->
+                        <li class="dropdown simple-menu">
+                            <a href="blog-f" class="dropdown-toggle" data-toggle="dropdown" role="button">Blog</a>
+
+                        </li>
+
+
+
+                        <!-- Login Menu Item -->
+                        <li class="menu-item login-btn">
+                            <a  href="contact" role="button">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- End of Main Nav -->
+            </div>
+            <!-- ======== End of Main Menu ======== -->
+
+        </div>
+    </nav><!-- Navigation code omitted for brevity -->
+</header>
+
+<!-- Page Header -->
+
+
+
+
+<!-- Resume Form -->
+<section class="ptb80" id="post-job">
+    <div class="container">
+        <form action="/candidature-spontanee/submit" method="post" enctype="multipart/form-data" class="post-job-resume mt50">
+
+            <!-- Resume Details -->
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- Form Group for Nom -->
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input class="form-control" type="text" name="nom" required>
+                    </div>
+
+                    <!-- Form Group for Prénom -->
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input class="form-control" type="text" name="prenom" required>
+                    </div>
+
+                    <!-- Form Group for Mail -->
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="email" name="mail" placeholder='e.g. "name@gmail.com"' required>
+                    </div>
+
+                    <!-- Form Group for Profession -->
+                    <div class="form-group">
+                        <label>Profession</label>
+                        <input class="form-control" type="text" name="profession" placeholder='e.g. "Software Developer"' required>
+                    </div>
+
+                    <!-- Form Group for Téléphone -->
+                    <div class="form-group">
+                        <label>Numéro Téléphone</label>
+                        <input class="form-control" type="text" name="telephone" placeholder='e.g. "07.00.00.00.00"'>
+                    </div>
+
+                    <!-- Form Group for CV Upload -->
+                    <div class="form-group">
+                        <label>CV</label>
+                        <div class="upload-file-btn">
+                            <span><i class="fa fa-upload"></i> Upload</span>
+                            <input type="file" name="cv" accept=".pdf,.docx,.doc" required>
+                        </div>
+                    </div>
+
+                    <!-- Form Group for Lettre de Motivation Upload -->
+                    <div class="form-group">
+                        <label>Lettre de Motivation</label>
+                        <div class="upload-file-btn">
+                            <span><i class="fa fa-upload"></i> Upload</span>
+                            <input type="file" name="lettreDeMotivation" accept=".pdf,.docx,.doc" required>
+                        </div>
+                    </div>
+
+                    <!-- Form Group for Contenu -->
+                    <div class="form-group">
+                        <label>Contenu de votre Candidature</label>
+                        <textarea class="form-control" name="contenu" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group pt30 nomargin" id="last">
+                        <button class="btn btn-blue btn-effect" type="submit">Soumettre</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Footer omitted for brevity -->
+
+<!-- JavaScript -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+
+</html>

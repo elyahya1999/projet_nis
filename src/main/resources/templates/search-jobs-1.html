@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,12 @@
     <meta name="keywords" content="cariera job board, HTML Template, job board html, job listing, job portal, job postings, jobs, recruiters, recruiting, recruitment">
     <meta name="author" content="GnoDesign">
 
+
     <!-- Website Title -->
     <title>Cariera - Job Board HTML Template</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700,800|Varela+Round" rel="stylesheet">
@@ -28,6 +30,8 @@
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,6 +39,107 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <div class="col-md-8 col-sm-12 col-xs-12 job-post-main">
+        <style>
+            .offer-card {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 20px;
+                margin-bottom: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+            }
+
+            .offer-left {
+                display: flex;
+                align-items: center;
+            }
+
+            .offer-image {
+                width: 50px;
+                height: 50px;
+                background-color: #f4f4f4;
+                border-radius: 5px;
+                margin-right: 20px;
+            }
+
+            .offer-details {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .offer-title {
+                font-size: 1.4em;
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .offer-company-location {
+                font-size: 0.9em;
+                color: #777;
+                margin-bottom: 5px;
+            }
+
+            .offer-type {
+                padding: 8px 15px;
+                background-color: #28a745; /* Full-time background color */
+                color: white;
+                border-radius: 20px;
+                text-align: center;
+                font-size: 0.9em;
+                font-weight: bold;
+            }
+
+            .offer-type.full-time {
+                background-color: #28a745;
+            }
+
+            .offer-type.part-time {
+                background-color: #6f42c1;
+            }
+
+            .more-info {
+                display: flex;
+                justify-content: flex-end; /* Aligns the button to the extreme right */
+            }
+
+            .more-info button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9em;
+            }
+
+            .more-info button:hover {
+                background-color: #0056b3;
+            }
+            .btn-outline-primary {
+                color: #007bff;
+                border-color: #007bff;
+            }
+
+            .btn-outline-primary:hover {
+                background-color: #007bff;
+                color: white;
+            }
+
+            .text-primary {
+                color: #007bff !important;
+            }
+
+            .text-white {
+                color: white !important;
+            }
+        </style>
+    </div>
 </head>
 
 <body>
@@ -43,10 +148,10 @@
     <header class="header1">
         <nav class="navbar navbar-default navbar-static-top fluid_header centered">
             <div class="container">
-                
+
                 <!-- Logo -->
                 <div class="col-md-2 col-sm-6 col-xs-8 nopadding">
-                    <a class="navbar-brand nomargin" href="index.html"><img src="images/logo.svg" alt="logo"></a>
+                    <a class="navbar-brand nomargin" href="home"><img src="images/logo.svg" alt="logo"></a>
                     <!-- INSERT YOUR LOGO HERE -->
                 </div>
 
@@ -70,213 +175,46 @@
                                 <h4>main menu</h4></li>
 
                             <!-- Simple Menu Item -->
-                            <li class="dropdown simple-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">home<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="index.html">home 1</a></li>
-                                    <li><a href="index-02.html">home 2 - slider</a></li>
-                                    <li><a href="index-03.html">home 3</a></li>
-                                    <li><a href="index-04.html">boxed version</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Simple Menu Item -->
                             <li class="dropdown simple-menu active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">For Candidates<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="search-jobs-1.html">search jobs 1</a></li>
-                                    <li><a href="search-jobs-2.html">search jobs 2</a></li>
-                                    <li><a href="search-jobs-3.html">search jobs 3</a></li>
-                                    <li><a href="search-jobs-4.html">search jobs 4</a></li>
-                                    <li><a href="submit-resume.html">submit resume</a></li>
-                                </ul>
+                                <a href="index" class="dropdown-toggle"  role="button">Accueil</a>
+
                             </li>
 
                             <!-- Simple Menu Item -->
                             <li class="dropdown simple-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">for employers<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="find-candidate-1.html">find a candidate 1</a></li>
-                                    <li><a href="find-candidate-2.html">find a candidate 2</a></li>
-                                    <li><a href="post-job.html">post a job</a></li>
-                                </ul>
+                                <a href="aboutUs" class="dropdown-toggle" data-toggle="dropdown" role="button">Le cabinet</a>
+
+                            </li>
+
+                            <!-- Simple Menu Item -->
+                            <li class="dropdown simple-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Domaines d'intervention</a>
+
                             </li>
 
                             <!-- Mega Menu Item -->
                             <li class="dropdown mega-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">pages<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <!-- Start of Mega Menu Inner -->
-                                        <div class="mega-menu-inner">
-                                            <div class="row">
-                                                <ul class="col-md-4">
-                                                    <li class="menu-title">pages 1</li>
-                                                    <li><a href="about-us.html">about us</a></li>
-                                                    <li><a href="contact-1.html">contact us 1</a></li>
-                                                    <li><a href="contact-2.html">contact us 2</a></li>
-                                                    <li><a href="companies.html">companies</a></li>
-                                                    <li><a href="company-page-1.html">company page 1</a></li>
-                                                    <li><a href="company-page-2.html">company page 2</a></li>
-                                                </ul>
-
-                                                <ul class="col-md-4">
-                                                    <li class="menu-title">pages 2</li>
-                                                    <li><a href="candidate-profile-1.html">candidate profile 1</a></li>
-                                                    <li><a href="candidate-profile-2.html">candidate profile 2</a></li>
-                                                    <li><a href="candidate-profile-3.html">candidate profile 3</a></li>
-                                                    <li><a href="faq.html">faq</a></li>
-                                                    <li><a href="job-page.html">job page</a></li>
-                                                    <li><a href="privacy-policy.html">privacy policy</a></li>
-                                                </ul>
-
-                                                <ul class="col-md-4">
-                                                    <li class="menu-title">pages 3</li>
-                                                    <li><a href="404.html">404</a></li>
-                                                    <li><a href="404-2.html">404 ver. 2</a></li>
-                                                    <li><a href="coming-soon.html">coming soon</a></li>
-                                                    <li><a href="login.html">login</a></li>
-                                                    <li><a href="register.html">register</a></li>
-                                                    <li><a href="lost-password.html">lost password</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- End of Mega Menu Inner -->
-                                    </li>
-                                </ul>
+                                <a href="jobP" class="dropdown-toggle" data-toggle="dropdown" role="button">Offres en cours</a>
                             </li>
                             <!-- End of Mega Menu Item -->
 
                             <!-- Simple Menu Item -->
                             <li class="dropdown simple-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">elements<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu">
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">headers<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="header1.html">header 1 - default</a></li>
-                                            <li><a href="header2.html">header 2 - logo top</a></li>
-                                            <li><a href="header3.html">header 3 - top bar</a></li>
-                                            <li><a href="header4.html">header 4 - sticky</a></li>
-                                        </ul>
-                                    </li>
+                                <a href="resume" class="dropdown-toggle" data-toggle="dropdown" role="button">Candidature spontanée</a>
 
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">footers<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="footer1.html">default</a></li>
-                                            <li><a href="footer2.html">light</a></li>
-                                            <li><a href="footer3.html">dark</a></li>
-                                            <li><a href="footer4.html">simple</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">page headers<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="page-header1.html">default</a></li>
-                                            <li><a href="page-header2.html">light</a></li>
-                                            <li><a href="page-header3.html">dark</a></li>
-                                            <li><a href="page-header4.html">parallax</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="buttons.html">buttons</a></li>
-                                    <li><a href="pricing-tables.html">pricing tables</a></li>
-                                    <li><a href="typography.html">typography</a></li>
-                                </ul>
                             </li>
 
                             <!-- Simple Menu Item -->
                             <li class="dropdown simple-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">blog<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu">
+                                <a href="blog-f" class="dropdown-toggle" data-toggle="dropdown" role="button">Blog</a>
 
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">blog right sidebar<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-right-sidebar-v1.html">version 1</a></li>
-                                            <li><a href="blog-right-sidebar-v2.html">version 2</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">blog left sidebar<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-left-sidebar-v1.html">version 1</a></li>
-                                            <li><a href="blog-left-sidebar-v2.html">version 2</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">blog fullwidth<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-fullwidth-v1.html">version 1</a></li>
-                                            <li><a href="blog-fullwidth-v2.html">version 2</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">masonry<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-masonry-4col.html">4 columns</a></li>
-                                            <li><a href="blog-masonry-3col.html">3 columns</a></li>
-                                            <li><a href="blog-masonry-2col.html">2 columns</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">single post<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-post-right-sidebar.html">post - right sidebar</a></li>
-                                            <li><a href="blog-post-left-sidebar.html">post - left sidebar</a></li>
-                                            <li><a href="blog-post.html">post - fullwidth</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
                             </li>
 
-                            <!-- Simple Menu Item -->
-                            <li class="dropdown simple-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">shop<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu">
 
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">shop<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-right-sidebar.html">shop - right sidebar</a></li>
-                                            <li><a href="shop-left-sidebar.html">shop - left sidebar</a></li>
-                                            <li><a href="shop-fullwidth.html">shop - fullwidth</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Dropdown Submenu -->
-                                    <li class="dropdown-submenu">
-                                        <a href="#">single product<i class="fa fa-angle-right"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-product-right-sidebar.html">product - right sidebar</a></li>
-                                            <li><a href="shop-product-left-sidebar.html">product - left sidebar</a></li>
-                                            <li><a href="shop-product.html">product - fullwidth</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="cart.html">cart</a></li>
-                                    <li><a href="checkout.html">checkout</a></li>
-                                </ul>
-                            </li>
 
                             <!-- Login Menu Item -->
                             <li class="menu-item login-btn">
-                                <a id="modal_trigger" href="javascript:void(0)" role="button"><i class="fa fa-lock"></i>login</a>
+                                <a  href="contact" role="button">Contact</a>
                             </li>
 
                         </ul>
@@ -295,30 +233,6 @@
 
 
     <!-- =============== Start of Page Header 1 Section =============== -->
-    <section class="page-header">
-        <div class="container">
-
-            <!-- Start of Page Title -->
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>search jobs ver. 1</h2>
-                </div>
-            </div>
-            <!-- End of Page Title -->
-
-            <!-- Start of Breadcrumb -->
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li><a href="#">home</a></li>
-                        <li class="active">for canditates</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End of Breadcrumb -->
-
-        </div>
-    </section>
     <!-- =============== End of Page Header 1 Section =============== -->
 
 
@@ -329,44 +243,6 @@
     <section class="search-jobs ptb80">
         <div class="container">
 
-            <!-- Start of Form -->
-            <form class="job-search-form row" action="#" method="get">
-
-                <!-- Start of keywords input -->
-                <div class="col-md-3 col-sm-12 search-keywords">
-                    <label for="search-keywords">Keywords</label>
-                    <input type="text" name="search-keywords" class="form-control" id="search-keywords" placeholder="Keywords">
-                </div>
-
-                <!-- Start of category input -->
-                <div class="col-md-3 col-sm-12 search-categories">
-                    <label for="search-categories">Category</label>
-                    <select name="search-categories" class="selectpicker" id="search-categories" data-live-search="true" title="Any Category" data-size="5" data-container="body">
-                        <option value="1">Accountance</option>
-                        <option value="2">Banking</option>
-                        <option value="3">Design & Art</option>
-                        <option value="4">Developement</option>
-                        <option value="5">Insurance</option>
-                        <option value="6">IT Engineer</option>
-                        <option value="7">Healthcare</option>
-                        <option value="8">Marketing</option>
-                        <option value="9">Management</option>
-                    </select>
-                </div>
-
-                <!-- Start of location input -->
-                <div class="col-md-4 col-sm-12 search-location">
-                    <label for="search-location">Location</label>
-                    <input type="text" name="search-location" class="form-control" id="search-location" placeholder="Location">
-                </div>
-
-                <!-- Start of submit input -->
-                <div class="col-md-2 col-sm-12 search-submit">
-                    <button type="submit" class="btn btn-blue btn-effect"><i class="fa fa-search"></i>search</button>
-                </div>
-
-            </form>
-            <!-- End of Form -->
 
 
             <!-- Start of Row -->
@@ -374,186 +250,50 @@
 
                 <!-- Start of Job Post Main -->
                 <div class="col-md-12 job-post-main">
-                    <h4>We found 234 matches.</h4>
+                    <form class="job-search-form row" th:action="@{/jobP}" method="get">
+                        <div class="col-md-3 col-sm-12 search-keywords">
+                            <input type="text" name="keyword" class="form-control" th:value="${keyword}" placeholder="Keywords">
+                        </div>
+                        <div class="col-md-2 col-sm-12 search-submit">
+                            <button type="submit" class="btn btn-blue btn-effect"><i class="fa fa-search"></i>search</button>
+                        </div>
+                    </form>
 
-                    <!-- Start of Job Post Wrapper -->
-                    <div class="job-post-wrapper mt20">
-
-                        <!-- ===== Start of Single Job Post 1 ===== -->
-                        <div class="single-job-post row nomargin">
-                            <!-- Job Company -->
-                            <div class="col-md-2 col-xs-3 nopadding">
-                                <div class="job-company">
-                                    <a href="company-page-1.html">
-                                        <img src="images/companies/envato.svg" alt="">
-                                    </a>
-                                </div>
+                    <body>
+                    <br>
+                    <br>
+                    <h3>Liste des Offres</h3>
+                    <div th:if="${listOffres}">
+                        <div th:each="offre : ${listOffres}" class="offer-card" style="display: flex; align-items: center; margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
+                            <!-- Section pour la photo -->
+                            <div class="offer-photo" style="flex-shrink: 0; margin-right: 20px;">
+                                <img th:src="${offre.getImage()}" alt="Photo de l'offre" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
                             </div>
-
-                            <!-- Job Title & Info -->
-                            <div class="col-md-8 col-xs-6 ptb20">
-                                <div class="job-title">
-                                    <a href="job-page.html">php senior developer</a>
-                                </div>
-
-                                <div class="job-info">
-                                    <span class="company"><i class="fa fa-building-o"></i>envato</span>
-                                    <span class="location"><i class="fa fa-map-marker"></i>Melbourn, Australia</span>
-                                </div>
+                            <!-- Section pour les détails de l'offre -->
+                            <div class="offer-details" style="flex-grow: 1;">
+                                <div class="offer-title" th:text="${offre.title}" style="font-size: 1.25rem; font-weight: bold;">Titre de l'offre</div>
+                                <div class="offer-company-location" th:text="${offre.entreprise + ' • ' + offre.localisation}" style="color: #555; margin-bottom: 10px;">Entreprise • Localisation</div>
+                                <div th:text="${offre.description}" style="margin-bottom: 15px;">Description de l'offre</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="more-info" style="margin-left: auto;"> <!-- This pushes the button to the extreme right -->
+                                        <a th:href="@{'/offre/' + ${offre.id}}">
+                                            <button type="button" style="padding: 10px 15px; background-color: #007bff; color: #fff; border: none; border-radius: 4px;">Savoir Plus</button>
+                                        </a>
+                                    </div>
                             </div>
-
-                            <!-- Job Category -->
-                            <div class="col-md-2 col-xs-3 ptb30">
-                                <div class="job-category">
-                                    <a href="javascript:void(0)" class="btn btn-green btn-small btn-effect">full time</a>
-                                </div>
                             </div>
                         </div>
-                        <!-- ===== End of Single Job Post 1 ===== -->
-
-
-                        <!-- ===== Start of Single Job Post 2 ===== -->
-                        <div class="single-job-post row nomargin">
-                            <!-- Job Company -->
-                            <div class="col-md-2 col-xs-3 nopadding">
-                                <div class="job-company">
-                                    <a href="company-page-1.html">
-                                        <img src="images/companies/google.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Job Title & Info -->
-                            <div class="col-md-8 col-xs-6 ptb20">
-                                <div class="job-title">
-                                    <a href="job-page.html">department head</a>
-                                </div>
-
-                                <div class="job-info">
-                                    <span class="company"><i class="fa fa-building-o"></i>google</span>
-                                    <span class="location"><i class="fa fa-map-marker"></i>Berlin, Germany</span>
-                                </div>
-                            </div>
-
-                            <!-- Job Category -->
-                            <div class="col-md-2 col-xs-3 ptb30">
-                                <div class="job-category">
-                                    <a href="javascript:void(0)" class="btn btn-purple btn-small btn-effect">part time</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ===== End of Single Job Post 2 ===== -->
-
-
-                        <!-- ===== Start of Single Job Post 3 ===== -->
-                        <div class="single-job-post row nomargin">
-                            <!-- Job Company -->
-                            <div class="col-md-2 col-xs-3 nopadding">
-                                <div class="job-company">
-                                    <a href="company-page-1.html">
-                                        <img src="images/companies/facebook.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Job Title & Info -->
-                            <div class="col-md-8 col-xs-6 ptb20">
-                                <div class="job-title">
-                                    <a href="job-page.html">graphic designer</a>
-                                </div>
-
-                                <div class="job-info">
-                                    <span class="company"><i class="fa fa-building-o"></i>facebook</span>
-                                    <span class="location"><i class="fa fa-map-marker"></i>london, UK</span>
-                                </div>
-                            </div>
-
-                            <!-- Job Category -->
-                            <div class="col-md-2 col-xs-3 ptb30">
-                                <div class="job-category">
-                                    <a href="javascript:void(0)" class="btn btn-blue btn-small btn-effect">freelancer</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ===== End of Single Job Post 3 ===== -->
-
-
-                        <!-- ===== Start of Single Job Post 4 ===== -->
-                        <div class="single-job-post row nomargin">
-                            <!-- Job Company -->
-                            <div class="col-md-2 col-xs-3 nopadding">
-                                <div class="job-company">
-                                    <a href="company-page-1.html">
-                                        <img src="images/companies/envato.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Job Title & Info -->
-                            <div class="col-md-8 col-xs-6 ptb20">
-                                <div class="job-title">
-                                    <a href="job-page.html">senior UI & UX designer</a>
-                                </div>
-
-                                <div class="job-info">
-                                    <span class="company"><i class="fa fa-building-o"></i>enavto</span>
-                                    <span class="location"><i class="fa fa-map-marker"></i>Melbourn, Australia</span>
-                                </div>
-                            </div>
-
-                            <!-- Job Category -->
-                            <div class="col-md-2 col-xs-3 ptb30">
-                                <div class="job-category">
-                                    <a href="javascript:void(0)" class="btn btn-orange btn-small btn-effect">intership</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ===== End of Single Job Post 4 ===== -->
-
-
-                        <!-- ===== Start of Single Job Post 5 ===== -->
-                        <div class="single-job-post row nomargin">
-                            <!-- Job Company -->
-                            <div class="col-md-2 col-xs-3 nopadding">
-                                <div class="job-company">
-                                    <a href="company-page-1.html">
-                                        <img src="images/companies/twitter.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Job Title & Info -->
-                            <div class="col-md-8 col-xs-6 ptb20">
-                                <div class="job-title">
-                                    <a href="job-page.html">senior health advisor</a>
-                                </div>
-
-                                <div class="job-info">
-                                    <span class="company"><i class="fa fa-building-o"></i>twitter</span>
-                                    <span class="location"><i class="fa fa-map-marker"></i>New York, USA</span>
-                                </div>
-                            </div>
-
-                            <!-- Job Category -->
-                            <div class="col-md-2 col-xs-3 ptb30">
-                                <div class="job-category">
-                                    <a href="javascript:void(0)" class="btn btn-red btn-small btn-effect">temporary</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ===== End of Single Job Post 5 ===== -->
-
                     </div>
-                    <!-- End of Job Post Wrapper -->
+                    </body>
+
 
                     <!-- Start of Pagination -->
-                    <div class="col-md-12 mt10">
-                        <ul class="pagination list-inline text-center">
-                            <li class="active"><a href="javascript:void(0)">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
+                    <div class="container">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item me-2" th:each="p, stat : ${pages}">
+                                <a th:classappend="${stat.index == currentPage} ? ' active btn-primary text-white' : 'btn btn-outline-primary text-primary'"
+                                   th:href="@{/jobP(page=${stat.index},keyword=${keyword})}" class="btn" th:text="${stat.index }"></a>
+                            </li>
                         </ul>
                     </div>
                     <!-- End of Pagination -->
@@ -636,7 +376,7 @@
                         <li><a href="privacy-policy.html"><i class="fa fa-angle-double-right"></i>privacy policy</a></li>
                         <li><a href="register.html"><i class="fa fa-angle-double-right"></i>register</a></li>
                         <li><a href="shop-right-sidebar.html"><i class="fa fa-angle-double-right"></i>shop</a></li>
-                        <li><a href="submit-resume.html"><i class="fa fa-angle-double-right"></i>submit resume</a></li>
+                        <li><a href="resume.html"><i class="fa fa-angle-double-right"></i>submit resume</a></li>
                     </ul>
                 </div>
 
@@ -924,6 +664,7 @@
     <script src="js/countdown.js"></script>
     <script src="js/isotope.min.js"></script>
     <script src="js/custom.js"></script>
+
 
 </body>
 
